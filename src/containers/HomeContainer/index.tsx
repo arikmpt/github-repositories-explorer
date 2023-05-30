@@ -6,7 +6,7 @@ import { useGetSearchUserByUsernameQuery } from '@api/githubApi';
 import useForm, { FormProps } from './forms/useForm'
 import { FormProvider, SubmitHandler, Controller } from 'react-hook-form';
 import { setParam } from '@store/slicers/searchSlice'
-import { CircularProgress, Skeleton } from '@mui/material';
+import { CircularProgress } from '@mui/material';
 
 const HomeContainer = () => {
     const param = useSelector((state: RootState) => state.search.param);
@@ -14,7 +14,7 @@ const HomeContainer = () => {
 
     const methods = useForm();
 
-    const { data, isFetching } = useGetSearchUserByUsernameQuery(param, {
+    const { data, isFetching, error: errorFetching, isError } = useGetSearchUserByUsernameQuery(param, {
         skip: !param,
         refetchOnMountOrArgChange: true,
     });
@@ -57,6 +57,12 @@ const HomeContainer = () => {
                 {!isFetching && data?.items.length === 0 && (
                     <Card justify={'center'}>
                         <Text>{`No users with username "${param}"`}</Text>
+                    </Card>
+                )}
+
+                {isError && (
+                    <Card justify={'center'}>
+                        <Text color={'contentNegative'}>{'Failed to fetch API'}</Text>
                     </Card>
                 )}
                 

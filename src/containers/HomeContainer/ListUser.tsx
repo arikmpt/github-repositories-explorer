@@ -13,7 +13,7 @@ interface Props {
 const ListUser = ({ user } : Props) => {
     const [show, setShow] = useState<boolean>(false);
 
-    const { data, isFetching } = useGetRepoByUsernameQuery(user.login, {
+    const { data, isFetching, isError } = useGetRepoByUsernameQuery(user.login, {
         skip: !show,
         refetchOnMountOrArgChange: true,
     });
@@ -47,6 +47,12 @@ const ListUser = ({ user } : Props) => {
                     {!isFetching && data?.length === 0 && (
                         <Card justify={'center'}>
                             <Text>{'No repo for this user'}</Text>
+                        </Card>
+                    )}
+
+                    {isError && (
+                        <Card justify={'center'}>
+                            <Text color={'contentNegative'}>{'Failed to fetch API'}</Text>
                         </Card>
                     )}
                     
