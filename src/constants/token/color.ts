@@ -13,6 +13,12 @@ const color = {
   contentTertiary: '#6E7A86' as const,
   primaryHover: '#1565c0' as const,
   secondaryColor: '#9c27b0' as const,
+  disabled: '#00000061' as const,
+  labelPlaceholder: '#c5c5c5' as const,
+  error: '#d32f2f' as const,
+  inputBorder: '#cdcdcd' as const,
+  grey: '#0000000f' as const,
+  boldGrey: '#0000002e' as const
 }
 
 export default color

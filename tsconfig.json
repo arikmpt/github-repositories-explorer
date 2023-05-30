@@ -31,8 +31,8 @@
       "@components/*": [
         "src/components/*"
       ],
-      "@containers/*": [
-        "src/containers/*"
+      "@containers": [
+        "src/containers"
       ],
       "@layouts": [
         "src/layouts"
@@ -49,6 +49,12 @@
       "@hooks/*": [
         "src/hooks/*"
       ],
+      "@api/*": [
+        "src/api/*"
+      ],
+      "@store/*": [
+        "src/store/*"
+      ]
     },
   },
   "include": [

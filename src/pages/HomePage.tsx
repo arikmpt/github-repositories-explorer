@@ -1,9 +1,7 @@
-import { Card } from '@components/commons'
+import { HomeContainer } from '@containers'
 
 const HomePage = () => (
-  <Card>
-    <h1>HomePage</h1>
-  </Card>
+  <HomeContainer />
 )
 
 export default HomePage

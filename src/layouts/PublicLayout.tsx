@@ -1,15 +1,15 @@
-import { SnackbarProvider } from '@providers'
+import { SnackbarProvider, ReduxProvider } from '@providers'
 import { globalStyle } from '@constants/commonStyles'
 import { Global } from '@emotion/react'
 import { Outlet } from 'react-router-dom'
 
 const PublicLayout = () => (
-  <SnackbarProvider>
-    <>
+  <ReduxProvider>
+    <SnackbarProvider>
       <Global styles={globalStyle} />
       <Outlet />
-    </>
-  </SnackbarProvider>
+    </SnackbarProvider>
+  </ReduxProvider>
 )
 
 export default PublicLayout
